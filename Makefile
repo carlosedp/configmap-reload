@@ -90,4 +90,4 @@ clean:
 
 .PHONY: docker
 docker: out/configmap-reload Dockerfile
-	docker build -t $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG) .
+	docker build -t $(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)-$(GOARCH) .
