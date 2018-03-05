@@ -23,7 +23,7 @@ GOARCH ?= $(shell go env GOARCH)
 BUILD_DIR ?= ./out
 ORG := github.com/jimmidyson
 REPOPATH ?= $(ORG)/configmap-reload
-DOCKER_IMAGE_NAME ?= jimmidyson/configmap-reload
+DOCKER_IMAGE_NAME ?= carlosedp/configmap-reload
 DOCKER_IMAGE_TAG ?= latest
 
 GOPATH := $(shell pwd)/_gopath
@@ -60,7 +60,7 @@ out/configmap-reload-linux-arm: vendor configmap-reload.go $(shell $(SRCFILES))
 
 out/configmap-reload-linux-arm64: vendor configmap-reload.go $(shell $(SRCFILES))
 	$(MKGOPATH)
-	cd $(GOPATH)/src/$(REPOPATH) && CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build --installsuffix cgo -ldflags="$(LDFLAGS)" -a -o $(BUILD_DIR)/configmap-reload-linux-arm configmap-reload.go
+	cd $(GOPATH)/src/$(REPOPATH) && CGO_ENABLED=0 GOARCH=arm64 GOOS=linux go build --installsuffix cgo -ldflags="$(LDFLAGS)" -a -o $(BUILD_DIR)/configmap-reload-linux-arm64 configmap-reload.go
 
 .PHONY: cross
 cross: out/configmap-reload-linux-amd64 out/configmap-reload-darwin-amd64 out/configmap-reload-windows-amd64.exe out/configmap-reload-linux-arm out/configmap-reload-linux-arm64
