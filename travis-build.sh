@@ -19,4 +19,4 @@ fi
 popd
 
 # Build image
-docker build --build-arg --build-arg target=$TARGET --build-arg arch=$ARCH --build-arg tag=$TAG -t "$IMAGE":"$VERSION"-"$TAG" .
+docker build --build-arg target=$TARGET --build-arg arch=$ARCH --build-arg tag=$TAG -t "$IMAGE":"$VERSION"-"$TAG" .
