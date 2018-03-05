@@ -19,7 +19,8 @@ env:
     - TARGET=arm32v7 ARCH=arm TAG=arm
 
 script:
-  - make build
+  - export GOARCH=$TAG
+  - make
   - ./travis-build.sh
   - >
     if [ "$TRAVIS_BRANCH" == "master" -a "$TRAVIS_PULL_REQUEST" == "false" ]; then
